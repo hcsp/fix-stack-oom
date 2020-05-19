@@ -21,7 +21,11 @@ public class Stack {
         if (size == 0) {
             throw new EmptyStackException();
         }
-        return elements[--size];
+        int currentIndex = --size;
+        Object element = elements[currentIndex];
+        // Release the reference
+        elements[currentIndex] = null;
+        return element;
     }
 
     /**
