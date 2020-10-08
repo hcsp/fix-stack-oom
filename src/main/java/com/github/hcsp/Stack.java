@@ -21,7 +21,11 @@ public class Stack {
         if (size == 0) {
             throw new EmptyStackException();
         }
-        return elements[--size];
+        int sizeTmp = --size;
+        if (size > 0){
+            elements[sizeTmp] = null;
+        }
+        return elements[sizeTmp];
     }
 
     /**
